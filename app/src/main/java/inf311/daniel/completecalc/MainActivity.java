@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnMult = (Button) findViewById(R.id.buttonmult);
         Button btnDiv = (Button) findViewById(R.id.buttondiv);
 
+        Button btnDot = (Button) findViewById(R.id.buttondot);
         Button btnDel = (Button) findViewById(R.id.buttonbackspace);
         Button btnClear = (Button) findViewById(R.id.buttonclear);
         Button btnEqual = (Button) findViewById(R.id.buttonequal);
@@ -150,6 +151,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = btnDiv.getText().toString();
+                textOp.setText(textOp.getText().toString() + text);
+            }
+        });
+
+        btnDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = btnDot.getText().toString();
                 textOp.setText(textOp.getText().toString() + text);
             }
         });
