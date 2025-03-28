@@ -174,6 +174,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                try {
+                    String operation = textOp.getText().toString();
+                    if (operation.isEmpty()) {
+                        textOp.setText("");
+                        return;
+                    }
+
+                    double res = calculateExpr(operation);
+                    textOp.setText(String.valueOf(res));
+                } catch (Exception e) {
+                    textOp.setText("ERROR!");
+                }
+            }
+        });
+    }
+
+    private double calculateExpr(String operation) throws Exception {
+        if (operation.contains("+")) {
+            String[] parts = operation.split("\\+");
+            return Double.parseDouble(parts[0]) + Double.parseDouble(parts[1]);
+        } else if (operation.contains("-")) {
+            String[] parts = operation.split("-");
+            return Double.parseDouble(parts[0]) - Double.parseDouble(parts[1]);
+        } else if (operation.contains("X")) {
+            String[] parts = operation.split("X");
+            return Double.parseDouble(parts[0]) * Double.parseDouble(parts[1]);
+        } else if (operation.contains("/")) {
+            String[] parts = operation.split("/");
+            double divisor = Double.parseDouble(parts[1]);
+            if (divisor == 0) throw new ArithmeticException("Division by zero");
+            return Double.parseDouble(parts[0]) / divisor;
+        }
+        throw new Exception("Invalid Expression");
     }
 }
