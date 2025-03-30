@@ -18,7 +18,7 @@
     <string name="btnmult">X</string>
     <string name="btndiv">/</string>
     <string name="btnclear">C</string>
-    <string name="btnbackspace">del</string>
+    <string name="btnbackspace"> &lt;&lt; </string>
     <string name="btnequal">=</string>
 
 

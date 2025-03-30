@@ -22,313 +22,64 @@ public class MainActivity extends AppCompatActivity {
         EditText textOp = (EditText) findViewById(R.id.text_op);
 
         // Button numbers
-        Button btn0 = (Button) findViewById(R.id.button0);
-        Button btn1 = (Button) findViewById(R.id.button1);
-        Button btn2 = (Button) findViewById(R.id.button2);
-        Button btn3 = (Button) findViewById(R.id.button3);
-        Button btn4 = (Button) findViewById(R.id.button4);
-        Button btn5 = (Button) findViewById(R.id.button5);
-        Button btn6 = (Button) findViewById(R.id.button6);
-        Button btn7 = (Button) findViewById(R.id.button7);
-        Button btn8 = (Button) findViewById(R.id.button8);
-        Button btn9 = (Button) findViewById(R.id.button9);
-        // Button operators
-        Button btnPlus = (Button) findViewById(R.id.buttonplus);
-        Button btnMinus = (Button) findViewById(R.id.buttonminus);
-        Button btnMult = (Button) findViewById(R.id.buttonmult);
-        Button btnDiv = (Button) findViewById(R.id.buttondiv);
+        int[] numberBtnIds = {
+                R.id.button0, R.id.button1, R.id.button2, R.id.button3,
+                R.id.button4, R.id.button5, R.id.button6, R.id.button7,
+                R.id.button8, R.id.button9, R.id.buttondot
+        };
 
-        Button btnDot = (Button) findViewById(R.id.buttondot);
+        for (int id : numberBtnIds) {
+            Button btn = findViewById(id);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String text = btn.getText().toString();
+
+                    if(resultShowing || errorShowing) {
+                        textOp.setText(text);
+                        resultShowing = false;
+                        errorShowing = false;
+                        oneOperator = false;
+                    } else {
+                        textOp.setText(textOp.getText().toString() + text);
+                    }
+                }
+            });
+        }
+
+        // Button operators
+        int[] opBtnIds = {
+                R.id.buttonplus, R.id.buttonminus, R.id.buttonmult, R.id.buttondiv
+        };
+
+        for (int id : opBtnIds) {
+            Button btn = findViewById(id);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(oneOperator) {return;}
+                    oneOperator = true;
+
+                    String text = btn.getText().toString();
+
+                    if(errorShowing) {
+                        textOp.setText(text);
+                        errorShowing = false;
+                    } else {
+                        textOp.setText(textOp.getText().toString() + text);
+                    }
+
+                    resultShowing = false;
+                }
+            });
+        }
+
+        // Unique
         Button btnDel = (Button) findViewById(R.id.buttonbackspace);
         Button btnClear = (Button) findViewById(R.id.buttonclear);
         Button btnEqual = (Button) findViewById(R.id.buttonequal);
 
-        // On click listeners
-        btn0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn0.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn1.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn2.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn3.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn4.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn5.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn6.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn7.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn8.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-        btn9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btn9.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-
-
-
-        btnPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(oneOperator) {
-                    return;
-                }
-                oneOperator = true;
-
-                String text = btnPlus.getText().toString();
-
-                if(errorShowing) {
-                    textOp.setText(text);
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-                resultShowing = false;
-
-
-            }
-        });
-
-        btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(oneOperator) {
-                    return;
-                }
-                oneOperator = true;
-
-                String text = btnMinus.getText().toString();
-
-                if(errorShowing) {
-                    textOp.setText(text);
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-                resultShowing = false;
-
-            }
-        });
-
-        btnMult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(oneOperator) {
-                    return;
-                }
-                oneOperator = true;
-
-                String text = btnMult.getText().toString();
-
-                if(errorShowing) {
-                    textOp.setText(text);
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-                resultShowing = false;
-
-            }
-        });
-
-        btnDiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(oneOperator) {
-                    return;
-                }
-                oneOperator = true;
-
-                String text = btnDiv.getText().toString();
-
-                if(errorShowing) {
-                    textOp.setText(text);
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-                resultShowing = false;
-
-            }
-        });
-
-        btnDot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text = btnDot.getText().toString();
-
-                if(resultShowing || errorShowing) {
-                    textOp.setText(text);
-                    resultShowing = false;
-                    errorShowing = false;
-                } else {
-                    textOp.setText(textOp.getText().toString() + text);
-                }
-
-            }
-        });
-
-
-
+        // Unique On click listeners
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -377,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     double res = calculateExpr(operation);
                     textOp.setText(String.valueOf(res));
                 } catch (Exception e) {
-                    textOp.setText("ERROR!");
+                    textOp.setText("ERROR");
                     errorShowing = true;
                     return;
                 }
