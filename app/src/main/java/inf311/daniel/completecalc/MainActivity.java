@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean resultShowing = false;
+    private boolean errorShowing = false;
+    private boolean oneOperator = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,80 +47,170 @@ public class MainActivity extends AppCompatActivity {
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn0.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn1.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn2.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn3.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn4.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn5.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn6.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn7.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn8.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btn9.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
@@ -126,40 +220,110 @@ public class MainActivity extends AppCompatActivity {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(oneOperator) {
+                    return;
+                }
+                oneOperator = true;
+
                 String text = btnPlus.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(errorShowing) {
+                    textOp.setText(text);
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
+                resultShowing = false;
+
+
             }
         });
 
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(oneOperator) {
+                    return;
+                }
+                oneOperator = true;
+
                 String text = btnMinus.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(errorShowing) {
+                    textOp.setText(text);
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
+                resultShowing = false;
+
             }
         });
 
         btnMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(oneOperator) {
+                    return;
+                }
+                oneOperator = true;
+
                 String text = btnMult.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(errorShowing) {
+                    textOp.setText(text);
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
+                resultShowing = false;
+
             }
         });
 
         btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(oneOperator) {
+                    return;
+                }
+                oneOperator = true;
+
                 String text = btnDiv.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(errorShowing) {
+                    textOp.setText(text);
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
+                resultShowing = false;
+
             }
         });
 
         btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String text = btnDot.getText().toString();
-                textOp.setText(textOp.getText().toString() + text);
+
+                if(resultShowing || errorShowing) {
+                    textOp.setText(text);
+                    resultShowing = false;
+                    errorShowing = false;
+                } else {
+                    textOp.setText(textOp.getText().toString() + text);
+                }
+
             }
         });
 
@@ -169,6 +333,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textOp.setText("");
+                oneOperator = false;
             }
         });
 
@@ -176,9 +341,24 @@ public class MainActivity extends AppCompatActivity {
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(errorShowing){
+                    errorShowing = false;
+                    oneOperator = false;
+                    textOp.setText("");
+                }
                 String current = textOp.getText().toString();
                 if (!current.isEmpty()) {
-                    textOp.setText(current.substring(0, current.length() - 1));
+                    String newExpr = current.substring(0, current.length()-1);
+
+                    if (!(newExpr.contains("+") || newExpr.contains("-") ||
+                            newExpr.contains("*") || newExpr.contains("/"))) {
+                        oneOperator = false;
+                    }
+
+                    textOp.setText(newExpr);
+                    resultShowing = false;
+                } else {
+                    errorShowing = false;
                 }
             }
         });
@@ -198,7 +378,11 @@ public class MainActivity extends AppCompatActivity {
                     textOp.setText(String.valueOf(res));
                 } catch (Exception e) {
                     textOp.setText("ERROR!");
+                    errorShowing = true;
+                    return;
                 }
+                resultShowing = true;
+                oneOperator = false;
             }
         });
     }
